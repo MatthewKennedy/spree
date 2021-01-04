@@ -32,7 +32,7 @@ input.flatpickr-input {
 .input-group {
   input.flatpickr-input{
     @include swith-appended-icon  {
-      opacity: 0;
+      z-index: 5;
     }
   }
 }
@@ -41,7 +41,7 @@ input.flatpickr-input {
   position: absolute;
   right: 0;
   top: 0;
-  z-index: 0;
+  z-index: 1;
   height: 100%;
 }
 
