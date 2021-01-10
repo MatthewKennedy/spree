@@ -2,11 +2,11 @@
   <a data-toggle="dropdown" class="plp-sort-header" href="#" role="button" aria-haspopup="true" aria-expanded="false">
     <%= Spree.t("plp.#{ params[:sort_by].blank? ? 'sort_by': params[:sort_by].gsub('-', '_') }") %>
     <%= icon(name: 'arrow-right',
-             classes: 'spree-icon-arrow spree-icon-arrow-up ml-3 plp-sort-header-arrow--up',
+             classes: 'spree-icon-arrow spree-icon-arrow-up ms-3 plp-sort-header-arrow--up',
              width: 18,
              height: 18) %>
     <%= icon(name: 'arrow-right',
-             classes: 'spree-icon-arrow spree-icon-arrow-down ml-3 plp-sort-header-arrow--down',
+             classes: 'spree-icon-arrow spree-icon-arrow-down ms-3 plp-sort-header-arrow--down',
              width: 18,
              height: 18) %>
   </a>

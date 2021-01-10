@@ -25,7 +25,7 @@
           <td class="align-center">
             <%= Spree.t(named_type.active? ? :active : :inactive) %>
           </td>
-          <td class="actions actions-1 text-right">
+          <td class="actions actions-1 text-end">
             <% if named_type.mutable? %>
               <%= link_to_edit(named_type, no_text: true) if can? :edit, named_type %>
               <%= link_to_delete(named_type, no_text: true) if can? :delete, named_type %>

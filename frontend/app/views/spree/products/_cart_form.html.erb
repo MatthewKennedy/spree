@@ -29,7 +29,7 @@
     <% if is_product_available_in_currency %>
       <div id="product-price" class="mb-2 text-center text-md-left add-to-cart-form-price" data-hook="product_price">
         <% if should_display_compare_at_price %>
-          <span class="compare-at-price mr-3"><%= display_compare_at_price(default_variant) %></span>
+          <span class="compare-at-price me-3"><%= display_compare_at_price(default_variant) %></span>
         <% end %>
         <span class="price selling" content="<%= @product_price.to_d %>">
           <%= display_price(default_variant) %>

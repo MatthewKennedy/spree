@@ -10,7 +10,7 @@
       <%= Spree.t(:package_from) %>
       <strong class="stock-location-name" data-hook="stock-location-name">'<%= shipment.stock_location.name %>'</strong>
       <% if shipment.ready? and can? :update, shipment %>
-        <%= link_to Spree.t(:ship), 'javascript:;', class: 'ship ml-auto btn btn-success', data: { 'shipment-number' => shipment.number } %>
+        <%= link_to Spree.t(:ship), 'javascript:;', class: 'ship ms-auto btn btn-success', data: { 'shipment-number' => shipment.number } %>
         <div class='clearfix'></div>
       <% end %>
     </h1>
