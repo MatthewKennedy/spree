@@ -5,6 +5,7 @@
   </div>
   <div class="form-group">
     <strong><%= Spree.t(:payment_method) %></strong>
+    <fieldset data-radio-control="payment_methods" data-radio-control="previous_cards">
     <% @payment_methods.each do |method| %>
       <div class="radio" data-id="<%= Spree.t(method.name, scope: :payment_methods, default: method.name).parameterize %>">
         <label data-hook="payment_method_field">
@@ -13,11 +14,12 @@
         </label>
       </div>
     <% end %>
+    </fieldset>
 
-    <div class="payment-method-settings">
+    <div class="payment-method-settings" data-rc-panel-group="payment_methods">
       <% @payment_methods.each do |method| %>
 
-        <div class="payment-methods my-3" id="payment_method_<%= method.id %>">
+        <div class="payment-methods my-3" id="payment_method_<%= method.id %>" data-rc-panel-uid="payment_methods_<%= method.id %>">
           <% if method.source_required? %>
             <%= render partial: "spree/admin/payments/source_forms/#{method.method_type}",
                        locals: {

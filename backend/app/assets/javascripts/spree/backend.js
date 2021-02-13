@@ -7,6 +7,7 @@
 //= require bootstrap-sprockets
 //= require handlebars
 //= require cleave
+//= require radio-control
 //= require js.cookie
 //= require jquery.jstree/jquery.jstree
 //= require jquery_ujs

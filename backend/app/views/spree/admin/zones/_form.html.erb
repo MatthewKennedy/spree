@@ -24,7 +24,7 @@
           <% end %>
         </div>
 
-        <div data-hook="type" class="form-group">
+        <div data-hook="type" class="form-group" data-radio-control="zone_type">
           <strong><%= Spree.t(:type) %></strong>
           <div class="radio my-2">
             <%= label_tag :country_based do %>
@@ -42,7 +42,7 @@
       </div>
     </div>
   </div>
-  <div class="col-12 col-lg-6">
+  <div class="col-12 col-lg-6" data-rc-panel-group="zone_type">
     <%= render partial: 'state_members', locals: { zone_form: zone_form } %>
     <%= render partial: 'country_members', locals: { zone_form: zone_form } %>
   </div>
