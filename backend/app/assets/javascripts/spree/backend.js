@@ -7,6 +7,7 @@
 //= require bootstrap-sprockets
 //= require handlebars
 //= require cleave
+//= require payment_validator
 //= require radio-control
 //= require js.cookie
 //= require jquery.jstree/jquery.jstree
@@ -53,7 +54,6 @@
 //= require spree/backend/user_picker
 //= require spree/backend/variant_autocomplete
 //= require spree/backend/variant_management
-//= require spree/backend/zone
 
 Spree.routes.clear_cache = Spree.adminPathFor('general_settings/clear_cache')
 Spree.routes.checkouts_api = Spree.pathFor('api/v1/checkouts')

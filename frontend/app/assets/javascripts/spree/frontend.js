@@ -19,6 +19,7 @@
 //= require spree/frontend/checkout/address
 //= require spree/frontend/checkout/address_book
 //= require spree/frontend/checkout/payment
+//= require payment_validator
 //= require spree/frontend/checkout/shipment
 //= require spree/frontend/views/spree/home/product_carousels
 //= require spree/frontend/views/spree/layouts/spree_application
