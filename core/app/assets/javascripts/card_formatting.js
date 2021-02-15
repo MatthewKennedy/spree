@@ -15,9 +15,26 @@ function formatCardnumber () {
         creditCard: true,
         onCreditCardTypeChanged: function (type) {
           $('.ccType').val(type)
+          showCardType(cardNumber, type)
         }
       })
     })
+  }
+}
+
+var selectedCardIcon = null
+
+function showCardType (cardNumber, type) {
+  var parent = cardNumber.closest('.cardIconParent')
+
+  if (parent) {
+    if (selectedCardIcon) {
+      selectedCardIcon.classList.remove('active')
+    }
+    selectedCardIcon = parent.querySelector('.icon-' + type)
+    if (selectedCardIcon) {
+      selectedCardIcon.classList.add('active')
+    }
   }
 }
 
