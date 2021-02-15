@@ -8,18 +8,17 @@ function formatAllCardInputFields () {
 }
 
 function formatCardnumber () {
-  if (document.querySelector('.cardNumber')) {
-    document.querySelectorAll('.cardNumber').forEach(function (cardNumber) {
-      /* eslint-disable no-new */
-      new Cleave(cardNumber, {
-        creditCard: true,
-        onCreditCardTypeChanged: function (type) {
-          $('.ccType').val(type)
-          showCardType(cardNumber, type)
-        }
-      })
+  if (!document.querySelector('.cardNumber')) return
+  document.querySelectorAll('.cardNumber').forEach(function (cardNumber) {
+    /* eslint-disable no-new */
+    new Cleave(cardNumber, {
+      creditCard: true,
+      onCreditCardTypeChanged: function (type) {
+        $('.ccType').val(type)
+        showCardType(cardNumber, type)
+      }
     })
-  }
+  })
 }
 
 var selectedCardIcon = null
