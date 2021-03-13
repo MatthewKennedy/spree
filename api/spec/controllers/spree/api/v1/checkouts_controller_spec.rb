@@ -147,7 +147,7 @@ module Spree
                     bill_address_attributes: address,
                     ship_address_attributes: address
                   }
-          expect(json_response['error']).to eq(I18n.t(:could_not_transition, scope: 'spree.api.order'))
+          expect(json_response['error']).to eq(I18n.t('spree.api.order.could_not_transition'))
           expect(response.status).to eq(422)
         end
 
@@ -312,7 +312,7 @@ module Spree
         order.update_column(:email, 'spree@example.com')
         api_put :next, id: order.to_param, order_token: order.token
         expect(response.status).to eq(422)
-        expect(json_response['errors']['base']).to include(Spree.t(:there_are_no_items_for_this_order))
+        expect(json_response['errors']['base']).to include(I18n.t('spree.there_are_no_items_for_this_order'))
       end
 
       it 'can transition an order to the next state' do
@@ -338,13 +338,13 @@ module Spree
         allow_any_instance_of(Order).to receive(:insufficient_stock_lines).and_return(order.line_items)
         api_put :next, id: order.to_param, order_token: order.token
         expect(response.status).to eq(422)
-        expect(json_response['error']).to match(Spree.t(:insufficient_quantity, scope: [:api, :order]))
+        expect(json_response['error']).to match(I18n.t('spree.api.order.insufficient_quantity'))
       end
 
       it 'doesnt advance payment state if order has no payment' do
         order.update_column(:state, 'payment')
         api_put :next, id: order.to_param, order_token: order.token, order: {}
-        expect(json_response['errors']['base']).to include(Spree.t(:no_payment_found))
+        expect(json_response['errors']['base']).to include(I18n.t('spree.no_payment_found'))
       end
 
       def send_request

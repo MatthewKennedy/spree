@@ -450,6 +450,7 @@ en:
     truncate: "&hellip;"
 
   spree:
+    adjustments_deleted: Adjustments Deleted
     abbreviation: Abbreviation
     accept: Accept
     acceptance_status: Acceptance status

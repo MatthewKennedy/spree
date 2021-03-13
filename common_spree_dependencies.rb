@@ -46,4 +46,5 @@ group :test, :development do
   gem 'puma'
 end
 
+gem 'i18n-tasks'
 gem 'solargraph', group: :development
