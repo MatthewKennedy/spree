@@ -23,6 +23,10 @@ module Spree
     end
 
     def compute(object)
+      def compute(*args)
+      object = args[0]
+
+
       base, percent = preferred_tiers.sort.reverse.detect { |b, _| object.amount >= b }
       (object.amount * (percent || preferred_base_percent) / 100).round(2)
     end
