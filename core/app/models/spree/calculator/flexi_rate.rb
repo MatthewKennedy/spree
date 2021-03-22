@@ -15,7 +15,9 @@ module Spree
       true
     end
 
-    def compute(object)
+    def compute(**args)
+      object = args[0]
+
       compute_from_quantity(object.quantity)
     end
 
