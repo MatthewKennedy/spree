@@ -17,14 +17,26 @@ module Spree
         end
 
         def compute_amount(line_item)
-          return 0 unless promotion.line_item_actionable?(line_item.order, line_item)
+          order = line_item.order
 
-          amounts = [line_item.amount, compute(line_item)]
-          order   = line_item.order
+          return 0 unless promotion.line_item_actionable?(order, line_item)
 
-          # Prevent negative order totals
-          amounts << order.amount - order.adjustments.eligible.sum(:amount).abs if order.adjustments.eligible.any?
+          matched_line_items = order.line_items.select do |item|
+            promotion.line_item_actionable?(order, item)
+          end
 
+          ams = []
+          matched_line_items.each do |i|
+            unless i.equal?(matched_line_items.last)
+              ams << i.amount
+            end
+          end
+
+          total = matched_line_items.sum(&:amount)
+          id = matched_line_items.last.id unless matched_line_items.last.id == matched_line_items.first.id
+          amounts = [line_item.amount, compute(line_item, total, ams, id)]
+
+          amounts << order.amount - order.adjustments.sum(:amount).abs if order.adjustments.any?
           amounts.min * -1
         end
       end
