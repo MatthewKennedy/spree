@@ -18,7 +18,7 @@ module Spree
       Spree.t(:tiered_flat_rate)
     end
 
-    def def compute(*args)
+    def compute(*args)
       object = args[0]
 
       base, amount = preferred_tiers.sort.reverse.detect { |b, _| object.amount >= b }
