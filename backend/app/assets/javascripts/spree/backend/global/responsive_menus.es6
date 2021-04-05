@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-  var body = $('body')
-  var modalBackdrop = $('#multi-backdrop')
+  const body = $('body')
+  const modalBackdrop = $('#multi-backdrop')
 
   // Fail safe on screen resize
-  var resizeTimer;
+  let resizeTimer;
   window.addEventListener('resize', function() {
     document.body.classList.remove('modal-open', 'sidebar-open', 'contextualSideMenu-open');
     document.body.classList.add('resize-animation-stopper');
@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
   modalBackdrop.click(closeAllMenus)
 
   // Main Menu Functionality
-  var sidebarOpen = $('#sidebar-open')
-  var sidebarClose = $('#sidebar-close')
-  var activeItem = $('#main-sidebar').find('.selected')
+  const sidebarOpen = $('#sidebar-open')
+  const sidebarClose = $('#sidebar-close')
+  const activeItem = $('#main-sidebar').find('.selected')
 
   activeItem.closest('.nav-sidebar').addClass('active-option')
   activeItem.closest('.nav-pills').addClass('in show')
@@ -38,8 +38,8 @@ document.addEventListener('DOMContentLoaded', function() {
   sidebarClose.click(closeAllMenus)
 
   // Contextual Sidebar Menu
-  var contextualSidebarMenuToggle = $('#contextual-menu-toggle')
-  var contextualSidebarMenuClose = $('#contextual-menu-close')
+  const contextualSidebarMenuToggle = $('#contextual-menu-toggle')
+  const contextualSidebarMenuClose = $('#contextual-menu-close')
 
   function toggleContextualMenu() {
     if (document.body.classList.contains('contextualSideMenu-open')) {

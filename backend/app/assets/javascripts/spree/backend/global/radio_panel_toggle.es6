@@ -5,8 +5,8 @@
 document.addEventListener('DOMContentLoaded', function() {
   $.fn.radioControlsVisibilityOfElement = function(dependentElementSelector) {
     if (!this.get(0)) { return }
-    var showValue = this.get(0).value
-    var radioGroup = $("input[name='" + this.get(0).name + "']")
+    const showValue = this.get(0).value
+    const radioGroup = $("input[name='" + this.get(0).name + "']")
     radioGroup.each(function() {
       $(this).click(function() {
         // eslint-disable-next-line eqeqeq

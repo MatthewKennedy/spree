@@ -14,6 +14,8 @@
 //= require select2-full
 //= require underscore-min.js
 
+//= require spree/backend/global/notify/index
+//= require spree/backend/global/utilities
 //= require spree/backend/global/alerts
 //= require spree/backend/global/bootstrap
 //= require spree/backend/global/flatpickr

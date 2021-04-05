@@ -28,15 +28,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Clickable ransack filters
   $('.js-add-filter').click(function() {
-    var ransackField = $(this).data('ransack-field')
-    var ransackValue = $(this).data('ransack-value')
+    const ransackField = $(this).data('ransack-field')
+    const ransackValue = $(this).data('ransack-value')
 
     $('#' + ransackField).val(ransackValue)
     $('#table-filter form').submit()
   })
 
   $(document).on('click', '.js-delete-filter', function() {
-    var ransackField = $(this).parents('.js-filter').data('ransack-field')
+    const ransackField = $(this).parents('.js-filter').data('ransack-field')
 
     $('#' + ransackField).val('')
     $('#table-filter form').submit()
@@ -56,12 +56,12 @@ document.addEventListener('DOMContentLoaded', function() {
   // To appear in the filtered options, the elements id attribute must start with 'q_',
   // and it must have the class'.js-filterable'.
   $('[id^="q_"].js-filterable').each(function() {
-    var $this = $(this)
+    const $this = $(this)
 
     if ($this.val() !== null && $this.val() !== '' && $this.val().length !== 0) {
-      var ransackValue, filter
-      var ransackFieldId = $this.attr('id')
-      var label = $('label[for="' + ransackFieldId + '"]')
+      let ransackValue
+      const ransackFieldId = $this.attr('id')
+      let label = $('label[for="' + ransackFieldId + '"]')
 
       if ($this.is('select')) {
         ransackValue = $this.find('option:selected').toArray().map(function(option) {
@@ -73,9 +73,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
       label = ransackField(label.text()) + ': ' + ransackValue
 
-      var cleanLabel = DOMPurify.sanitize(label)
+      const cleanLabel = DOMPurify.sanitize(label)
 
-      filter = '<span class="js-filter badge badge-secondary" data-ransack-field="' + ransackFieldId + '">' + cleanLabel + '<i class="icon icon-cancel ml-2 js-delete-filter"></i></span>'
+      const filter = '<span class="js-filter badge badge-secondary" data-ransack-field="' + ransackFieldId + '">' + cleanLabel + '<i class="icon icon-cancel ml-2 js-delete-filter"></i></span>'
       $('.js-filters').append(filter).show()
     }
   })
@@ -84,9 +84,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // preserves all selected filters / queries supplied by user
   // changes only per_page value
   $('.js-per-page-select').change(function() {
-    var form = $(this).closest('.js-per-page-form')
-    var url = form.attr('action')
-    var value = $(this).val().toString()
+    const form = $(this).closest('.js-per-page-form')
+    let url = form.attr('action')
+    const value = $(this).val().toString()
     if (url.match(/\?/)) {
       url += '&per_page=' + value
     } else {
@@ -98,10 +98,10 @@ document.addEventListener('DOMContentLoaded', function() {
   // injects per_page settings to all available search forms
   // so when user changes some filters / queries per_page is preserved
   $(document).ready(function() {
-    var perPageDropdown = $('.js-per-page-select:first')
+    const perPageDropdown = $('.js-per-page-select:first')
     if (perPageDropdown.length) {
-      var perPageValue = perPageDropdown.val().toString()
-      var perPageInput = '<input type="hidden" name="per_page" value=' + perPageValue + ' />'
+      const perPageValue = perPageDropdown.val().toString()
+      const perPageInput = '<input type="hidden" name="per_page" value=' + perPageValue + ' />'
       $('#table-filter form').append(perPageInput)
     }
   })

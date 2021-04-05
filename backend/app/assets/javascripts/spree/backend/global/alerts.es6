@@ -1,30 +1,30 @@
-// Triggers alert if required on DOMContentLoaded.
-document.addEventListener('DOMContentLoaded', function() {
-  var element = document.querySelector('.flash-alert')
+/* eslint-disable no-unused-vars */
 
-  if (element) {
-    handleAlert(element)
-  }
+document.addEventListener('DOMContentLoaded', function() {
+  // Triger the flash notice cycle if a '.flash-alert' element
+  // is present in the DOM when page is loaded.
+  const element = document.querySelector('.flash-alert')
+
+  if (element) { handleAlert(element) }
 })
 
 // Triggers alerts when requested by javascript.
-// eslint-disable-next-line camelcase, no-unused-vars
-function show_flash(type, message) {
-  var cleanMessage = DOMPurify.sanitize(message)
-  var existingAlert = document.querySelector('.flash-alert')
+function show_flash(type = 'success', message = 'Loading...') {
+  const cleanMessage = DOMPurify.sanitize(message)
+  const existingAlert = document.querySelector('.flash-alert')
 
   if (existingAlert) {
     existingAlert.remove()
   }
 
-  var flashDiv = $('.alert-' + type)
+  const flashDiv = $('.alert-' + type)
   if (flashDiv.length === 0) {
-    flashDiv = $('<div class="d-flex justify-content-center position-fixed flash-alert">' +
+    const flashDiv = $('<div class="d-flex justify-content-center position-fixed flash-alert">' +
       '<div class="alert alert-' + type + ' mx-2">' + cleanMessage + '</div></div>')
 
     $('body').append(flashDiv)
 
-    var ajaxFlashNotfication = document.querySelector('.flash-alert')
+    const ajaxFlashNotfication = document.querySelector('.flash-alert')
     handleAlert(ajaxFlashNotfication)
   }
 }
